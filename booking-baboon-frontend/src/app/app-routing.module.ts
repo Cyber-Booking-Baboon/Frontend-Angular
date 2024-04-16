@@ -52,6 +52,7 @@ import {NotificationPageComponent} from "./layout/notifications/notification-pag
 import {
   AdminReviewReportsPageComponent
 } from "./layout/reports/admin-review-reports-page/admin-review-reports-page.component";
+import {CertificatesPageComponent} from "./layout/certificates/certificates-page/certificates-page.component";
 
 const routes: Routes = [
   {
@@ -173,6 +174,12 @@ const routes: Routes = [
     path: 'review-reports',
     canActivate: [AuthGuard],
     data: {role: ['ADMIN']}
+  },
+  {
+    component: CertificatesPageComponent,
+    path: 'certificates',
+    canActivate: [AuthGuard],
+    data: {role: ['SYSADMIN']}
   },
 ];
 
