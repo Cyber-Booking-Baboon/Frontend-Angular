@@ -118,8 +118,17 @@ import {
 import {
   FavoriteAccommodationsPageComponent
 } from "./accommodations/favorites/favorite-accommodations-page/favorite-accommodations-page.component";
-import {CommonModule} from "@angular/common";
+import {
+  AccommodationModificationDetailsPageComponent
+} from "./accommodations/modification/pages/accommodation-modification-details-page/accommodation-modification-details-page.component";
+import {NotificationPageComponent} from "./notifications/notification-page/notification-page.component";
+import {NotificationCardComponent} from "./notifications/notification-card/notification-card.component";
+import {NotificationCardsComponent} from "./notifications/notification-cards/notification-cards.component";
+import {AdminReviewReportsPageComponent} from "./reports/admin-review-reports-page/admin-review-reports-page.component";
+import {AdminReviewReportsComponent} from "./reports/admin-review-reports/admin-review-reports.component";
+import {UserReportsComponent} from "./reports/user-reports/user-reports.component";
 import {MaterialModule} from "../infrastructure/material/material.module";
+import {CommonModule} from "@angular/common";
 import {RouterLink, RouterModule} from "@angular/router";
 import {MatInputModule} from "@angular/material/input";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
@@ -131,15 +140,10 @@ import {HttpClientModule} from "@angular/common/http";
 import {MatTableModule} from "@angular/material/table";
 import {MatSortModule} from "@angular/material/sort";
 import {MatTabsModule} from "@angular/material/tabs";
-import { NotificationPageComponent } from './notifications/notification-page/notification-page.component';
-import { NotificationCardComponent } from './notifications/notification-card/notification-card.component';
-import { NotificationCardsComponent } from './notifications/notification-cards/notification-cards.component';
-import {
-  AccommodationModificationDetailsPageComponent
-} from "./accommodations/modification/pages/accommodation-modification-details-page/accommodation-modification-details-page.component";
-import { AdminReviewReportsPageComponent } from './reports/admin-review-reports-page/admin-review-reports-page.component';
-import { AdminReviewReportsComponent } from './reports/admin-review-reports/admin-review-reports.component';
-import { UserReportsComponent } from './reports/user-reports/user-reports.component';
+import { CertificatesPageComponent } from './certificates/certificates-page/certificates-page.component';
+import { CertificateCardComponent } from './certificates/certificate-card/certificate-card.component';
+import { CertificateCardsComponent } from './certificates/certificate-cards/certificate-cards.component';
+import { NavbarSysAdminComponent } from './navbars/navbar-sys-admin/navbar-sys-admin.component';
 
 
 @NgModule({
@@ -209,7 +213,11 @@ import { UserReportsComponent } from './reports/user-reports/user-reports.compon
     NotificationCardsComponent,
     AdminReviewReportsPageComponent,
     AdminReviewReportsComponent,
-    UserReportsComponent
+    UserReportsComponent,
+    CertificatesPageComponent,
+    CertificateCardComponent,
+    CertificateCardsComponent,
+    NavbarSysAdminComponent
   ],
   exports: [
     NavbarComponent,

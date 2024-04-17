@@ -36,7 +36,12 @@ export class LoginComponent {
           localStorage.setItem('user', response.jwt);
           this.authService.setUser()
           this.initializeWebSocket();
-          this.router.navigate(['accommodations'])
+          if(this.authService.getRole() === "SYSADMIN"){
+            this.router.navigate(['certificates'])
+          } else {
+            this.router.navigate(['accommodations'])
+          }
+
         },error:() => {
           this.loginFailed = true;
         }
