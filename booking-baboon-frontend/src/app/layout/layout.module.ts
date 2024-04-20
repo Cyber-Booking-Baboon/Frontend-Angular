@@ -140,9 +140,9 @@ import {HttpClientModule} from "@angular/common/http";
 import {MatTableModule} from "@angular/material/table";
 import {MatSortModule} from "@angular/material/sort";
 import {MatTabsModule} from "@angular/material/tabs";
-import { CertificatesPageComponent } from './certificates/certificates-page/certificates-page.component';
-import { CertificateCardComponent } from './certificates/certificate-card/certificate-card.component';
-import { CertificateCardsComponent } from './certificates/certificate-cards/certificate-cards.component';
+import { CertificatesPageComponent } from './certificates/pages/certificates-page/certificates-page.component';
+import { CertificateCardComponent } from './certificates/components/certificate-card/certificate-card.component';
+import { CertificateCardsComponent } from './certificates/components/certificate-cards/certificate-cards.component';
 import { NavbarSysAdminComponent } from './navbars/navbar-sys-admin/navbar-sys-admin.component';
 
 

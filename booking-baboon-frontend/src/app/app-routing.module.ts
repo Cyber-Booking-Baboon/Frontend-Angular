@@ -52,7 +52,7 @@ import {NotificationPageComponent} from "./layout/notifications/notification-pag
 import {
   AdminReviewReportsPageComponent
 } from "./layout/reports/admin-review-reports-page/admin-review-reports-page.component";
-import {CertificatesPageComponent} from "./layout/certificates/certificates-page/certificates-page.component";
+import {CertificatesPageComponent} from "./layout/certificates/pages/certificates-page/certificates-page.component";
 
 const routes: Routes = [
   {
