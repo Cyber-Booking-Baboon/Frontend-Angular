@@ -144,6 +144,8 @@ import { CertificatesPageComponent } from './certificates/pages/certificates-pag
 import { CertificateCardComponent } from './certificates/components/certificate-card/certificate-card.component';
 import { CertificateCardsComponent } from './certificates/components/certificate-cards/certificate-cards.component';
 import { NavbarSysAdminComponent } from './navbars/navbar-sys-admin/navbar-sys-admin.component';
+import { IssueCertificatePageComponent } from './certificates/pages/issue-certificate-page/issue-certificate-page.component';
+import { CertificateFormComponent } from './certificates/components/certificate-form/certificate-form.component';
 
 
 @NgModule({
@@ -217,7 +219,9 @@ import { NavbarSysAdminComponent } from './navbars/navbar-sys-admin/navbar-sys-a
     CertificatesPageComponent,
     CertificateCardComponent,
     CertificateCardsComponent,
-    NavbarSysAdminComponent
+    NavbarSysAdminComponent,
+    IssueCertificatePageComponent,
+    CertificateFormComponent
   ],
   exports: [
     NavbarComponent,

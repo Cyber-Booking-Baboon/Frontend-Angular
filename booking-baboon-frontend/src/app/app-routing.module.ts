@@ -53,6 +53,9 @@ import {
   AdminReviewReportsPageComponent
 } from "./layout/reports/admin-review-reports-page/admin-review-reports-page.component";
 import {CertificatesPageComponent} from "./layout/certificates/pages/certificates-page/certificates-page.component";
+import {
+  IssueCertificatePageComponent
+} from "./layout/certificates/pages/issue-certificate-page/issue-certificate-page.component";
 
 const routes: Routes = [
   {
@@ -178,6 +181,12 @@ const routes: Routes = [
   {
     component: CertificatesPageComponent,
     path: 'certificates',
+    canActivate: [AuthGuard],
+    data: {role: ['SYSADMIN']}
+  },
+  {
+    component: IssueCertificatePageComponent,
+    path:"certificates/:alias/issue",
     canActivate: [AuthGuard],
     data: {role: ['SYSADMIN']}
   },
