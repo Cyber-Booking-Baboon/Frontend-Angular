@@ -90,6 +90,16 @@
       </mat-form-field>
     </div>
 
+    <div id="extension-section">
+      <h3>Extensions</h3>
+      <div id="extension-box" [formGroup]="extensionTypeForm">
+      <span class="extension-checkbox" *ngFor="let extension of getEnumValues(availableExtensions)">
+        <mat-checkbox color="primary" [formControlName]="extension">{{ extension }}</mat-checkbox>
+      </span>
+      </div>
+    </div>
+
     <button mat-raised-button type="submit" color="primary" id="submit-form-button" [disabled]="!certificateForm.valid">Submit form</button>
   </form>
 </div>
+<app-snack-bar></app-snack-bar>

@@ -4,7 +4,8 @@ import {Observable} from "rxjs";
 import {User} from "../users/models/user.model";
 import {environment} from "../../env/env";
 import {Certificate} from "./models/certificate";
-import {CertificateDTO} from "./models/certificate.dto";
+import {CertificateCreateDTO} from "./models/certificate.dto";
+import {CertificateExtension} from "./models/certificate.extension";
 
 @Injectable({
   providedIn: 'root'
@@ -19,6 +20,18 @@ export class CertificateService {
 
   getAllChildren(alias : string): Observable<Certificate[]> {
     return this.httpClient.get<Certificate[]>(environment.pkiHost + 'certificates/' + alias + '/children')
+  }
+
+  issueCertificate(certificate: CertificateCreateDTO): Observable<Certificate> {
+    return this.httpClient.post<Certificate>(environment.pkiHost + 'certificates', certificate)
+  }
+
+  checkAliasUniqueness(alias: string) : Observable<boolean>{
+    return this.httpClient.get<boolean>(environment.pkiHost + 'certificates/unique/' + alias)
+  }
+
+  getExtensions(alias : string): Observable<CertificateExtension[]>{
+    return this.httpClient.get<CertificateExtension[]>(environment.pkiHost + 'certificates/extensions/' + alias)
   }
 
 }
