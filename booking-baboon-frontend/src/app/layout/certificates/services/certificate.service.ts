@@ -34,4 +34,11 @@ export class CertificateService {
     return this.httpClient.get<CertificateExtension[]>(environment.pkiHost + 'certificates/extensions/' + alias)
   }
 
+  checkValidity(alias: string) : Observable<boolean>{
+    return this.httpClient.get<boolean>(environment.pkiHost + 'certificates/valid/' + alias)
+  }
+
+  remove(alias: string) : Observable<boolean>{
+    return this.httpClient.delete<boolean>(environment.pkiHost + 'certificates/' + alias)
+  }
 }

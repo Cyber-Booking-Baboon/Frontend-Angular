@@ -3,6 +3,7 @@ import {Accommodation} from "../../../accommodations/shared/models/accommodation
 import {Certificate} from "../../models/certificate";
 import {CertificateService} from "../../services/certificate.service";
 import {CertificateExtension} from "../../models/certificate.extension";
+import {SharedService} from "../../../../shared/shared.service";
 
 @Component({
   selector: 'app-certificate-card',
@@ -15,7 +16,7 @@ export class CertificateCardComponent {
   children!: Certificate[]
   isDropped = false;
 
-  constructor(private certificateService: CertificateService) {
+  constructor(private certificateService: CertificateService, private sharedService:SharedService) {
   }
 
   loadChildren(): void {
@@ -44,12 +45,29 @@ export class CertificateCardComponent {
 
   }
 
-  onRevokeClicked() {
-
+  onRemoveClicked() {
+    this.certificateService.remove(this.certificate.alias).subscribe({
+      next: (data: boolean) => {
+        this.sharedService.openSnack("Certificate is removed successfully");
+        location.reload();
+        console.log(data)
+      },
+      error: (_) => {
+        this.sharedService.openSnack("Certificate is not removed");
+      }
+    });
   }
 
   onValidateClicked() {
-    console.log(this.certificate)
+    this.certificateService.checkValidity(this.certificate.alias).subscribe({
+      next: (data: boolean) => {
+        this.sharedService.openSnack("Certificate is valid");
+        console.log(data)
+      },
+      error: (_) => {
+        this.sharedService.openSnack("Certificate is not valid");
+      }
+    });
   }
 
   toggleDropdown() {
