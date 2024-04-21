@@ -57,6 +57,9 @@ import {
   IssueCertificatePageComponent
 } from "./layout/certificates/pages/issue-certificate-page/issue-certificate-page.component";
 import {
+  CertificateRequestsPageComponent
+} from "./layout/certificates/pages/certificate-requests-page/certificate-requests-page.component";
+import {
   CertificateRequestHostPageComponent
 } from "./layout/certificates/pages/certificate-request-host-page/certificate-request-host-page.component";
 
@@ -190,6 +193,12 @@ const routes: Routes = [
   {
     component: IssueCertificatePageComponent,
     path:"certificates/:alias/issue",
+    canActivate: [AuthGuard],
+    data: {role: ['SYSADMIN']}
+  },
+  {
+    component: CertificateRequestsPageComponent,
+    path: 'certificate-requests',
     canActivate: [AuthGuard],
     data: {role: ['SYSADMIN']}
   },

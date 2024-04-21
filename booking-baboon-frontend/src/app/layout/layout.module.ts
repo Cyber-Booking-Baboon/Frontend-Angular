@@ -146,6 +146,9 @@ import { CertificateCardsComponent } from './certificates/components/certificate
 import { NavbarSysAdminComponent } from './navbars/navbar-sys-admin/navbar-sys-admin.component';
 import { IssueCertificatePageComponent } from './certificates/pages/issue-certificate-page/issue-certificate-page.component';
 import { CertificateFormComponent } from './certificates/components/certificate-form/certificate-form.component';
+import { CertificateRequestCardComponent } from './certificates/components/requests/certificate-request-card/certificate-request-card.component';
+import { CertificateRequestCardsComponent } from './certificates/components/requests/certificate-request-cards/certificate-request-cards.component';
+import { CertificateRequestsPageComponent } from './certificates/pages/certificate-requests-page/certificate-requests-page.component';
 import { CertificateRequestHostPageComponent } from './certificates/pages/certificate-request-host-page/certificate-request-host-page.component';
 import { CertificateRequestCardHostComponent } from './certificates/components/certificate-request-card-host/certificate-request-card-host.component';
 import { CertificateRequestCardsHostComponent } from './certificates/components/certificate-request-cards-host/certificate-request-cards-host.component';
@@ -227,7 +230,11 @@ import { CertificateRequestCardsHostComponent } from './certificates/components/
     CertificateFormComponent,
     CertificateRequestHostPageComponent,
     CertificateRequestCardHostComponent,
-    CertificateRequestCardsHostComponent
+    CertificateRequestCardsHostComponent,
+    CertificateFormComponent,
+    CertificateRequestCardComponent,
+    CertificateRequestCardsComponent,
+    CertificateRequestsPageComponent
   ],
   exports: [
     NavbarComponent,

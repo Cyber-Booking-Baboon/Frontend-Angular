@@ -1,6 +1,8 @@
 import {CertificateExtension} from "./certificate.extension";
 
 export interface CertificateRequest{
+  id: number
+
   alias: string;
   issuerAlias: string;
 
@@ -12,8 +14,8 @@ export interface CertificateRequest{
   subjectC: string;
   subjectE: string;
   subjectUID: string;
-  startDate: Date;
-  endDate: Date;
+  startDate: string;
+  endDate: string;
 
   status: CertificateRequestStatus;
   extensions: CertificateExtension[];
