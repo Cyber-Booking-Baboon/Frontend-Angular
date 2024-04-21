@@ -5,7 +5,7 @@ import {AvailablePeriod} from "../../../accommodations/shared/models/available-p
 import {Certificate} from "../../models/certificate";
 import {AccommodationType} from "../../../accommodations/shared/models/accommodation-type.model";
 import {CertificateExtension} from "../../models/certificate.extension";
-import {CertificateService} from "../../certificate.service";
+import {CertificateService} from "../../services/certificate.service";
 import {SharedService} from "../../../../shared/shared.service";
 import {CertificateCreateDTO} from "../../models/certificate.dto";
 import {map} from "rxjs/operators";

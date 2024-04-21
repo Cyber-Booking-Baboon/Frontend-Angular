@@ -1,11 +1,11 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
-import {User} from "../users/models/user.model";
-import {environment} from "../../env/env";
-import {Certificate} from "./models/certificate";
-import {CertificateCreateDTO} from "./models/certificate.dto";
-import {CertificateExtension} from "./models/certificate.extension";
+import {Certificate} from "../models/certificate";
+import {environment} from "../../../env/env";
+import {CertificateCreateDTO} from "../models/certificate.dto";
+import {CertificateExtension} from "../models/certificate.extension";
+
 
 @Injectable({
   providedIn: 'root'

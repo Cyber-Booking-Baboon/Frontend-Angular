@@ -1,7 +1,7 @@
 import {Component, Input} from '@angular/core';
 import {Accommodation} from "../../../accommodations/shared/models/accommodation.model";
 import {Certificate} from "../../models/certificate";
-import {CertificateService} from "../../certificate.service";
+import {CertificateService} from "../../services/certificate.service";
 import {CertificateExtension} from "../../models/certificate.extension";
 
 @Component({

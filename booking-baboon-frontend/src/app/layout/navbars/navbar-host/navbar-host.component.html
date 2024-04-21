@@ -23,6 +23,9 @@
     <button mat-raised-button color="primary" [routerLink]="['/host/accommodations/summary-generator']">
       Summary generator
     </button>
+    <button mat-raised-button color="primary" [routerLink]="['/certificate-requests/host/' , loggedUserId]">
+      Certificates
+    </button>
     <button mat-raised-button color="warn" (click)="logout()">
       Log Out
     </button>

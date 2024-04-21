@@ -146,6 +146,9 @@ import { CertificateCardsComponent } from './certificates/components/certificate
 import { NavbarSysAdminComponent } from './navbars/navbar-sys-admin/navbar-sys-admin.component';
 import { IssueCertificatePageComponent } from './certificates/pages/issue-certificate-page/issue-certificate-page.component';
 import { CertificateFormComponent } from './certificates/components/certificate-form/certificate-form.component';
+import { CertificateRequestHostPageComponent } from './certificates/pages/certificate-request-host-page/certificate-request-host-page.component';
+import { CertificateRequestCardHostComponent } from './certificates/components/certificate-request-card-host/certificate-request-card-host.component';
+import { CertificateRequestCardsHostComponent } from './certificates/components/certificate-request-cards-host/certificate-request-cards-host.component';
 
 
 @NgModule({
@@ -221,7 +224,10 @@ import { CertificateFormComponent } from './certificates/components/certificate-
     CertificateCardsComponent,
     NavbarSysAdminComponent,
     IssueCertificatePageComponent,
-    CertificateFormComponent
+    CertificateFormComponent,
+    CertificateRequestHostPageComponent,
+    CertificateRequestCardHostComponent,
+    CertificateRequestCardsHostComponent
   ],
   exports: [
     NavbarComponent,

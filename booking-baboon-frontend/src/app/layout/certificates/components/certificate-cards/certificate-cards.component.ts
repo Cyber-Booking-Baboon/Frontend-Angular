@@ -2,7 +2,7 @@ import {Component, Input, OnInit} from '@angular/core';
 import {Accommodation} from "../../../accommodations/shared/models/accommodation.model";
 import {AccommodationService} from "../../../accommodations/shared/services/accommodation.service";
 import {Certificate} from "../../models/certificate";
-import {CertificateService} from "../../certificate.service";
+import {CertificateService} from "../../services/certificate.service";
 
 @Component({
   selector: 'app-certificate-cards',

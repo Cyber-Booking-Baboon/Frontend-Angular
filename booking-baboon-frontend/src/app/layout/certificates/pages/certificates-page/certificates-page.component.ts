@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {AccommodationFilter} from "../../../accommodations/search/models/accommodationFilter.model";
 import {Accommodation} from "../../../accommodations/shared/models/accommodation.model";
 import {Certificate} from "../../models/certificate";
-import {CertificateService} from "../../certificate.service";
+import {CertificateService} from "../../services/certificate.service";
 import {Subject} from "rxjs";
 import {CertificateExtension} from "../../models/certificate.extension";
 
