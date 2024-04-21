@@ -62,6 +62,9 @@ import {
 import {
   CertificateRequestHostPageComponent
 } from "./layout/certificates/pages/certificate-request-host-page/certificate-request-host-page.component";
+import {
+  IssueCertificateRequestPageComponent
+} from "./layout/certificates/pages/issue-certificate-request-page/issue-certificate-request-page.component";
 
 const routes: Routes = [
   {
@@ -205,6 +208,12 @@ const routes: Routes = [
   {
     component: CertificateRequestHostPageComponent,
     path:"certificate-requests/host/:id",
+    canActivate: [AuthGuard],
+    data: {role: ['HOST']}
+  },
+  {
+    component: IssueCertificateRequestPageComponent,
+    path:"certificate-requests/host/:id/issue",
     canActivate: [AuthGuard],
     data: {role: ['HOST']}
   },

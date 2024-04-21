@@ -34,6 +34,9 @@ export class CertificateService {
     return this.httpClient.get<CertificateExtension[]>(environment.pkiHost + 'certificates/extensions/' + alias)
   }
 
+  getPrivateKey(userId: string, alias: string) {
+    return this.httpClient.get<string>(environment.pkiHost + 'certificates/'+ userId + "/pk/" + alias)
+  }
   checkValidity(alias: string) : Observable<boolean>{
     return this.httpClient.get<boolean>(environment.pkiHost + 'certificates/valid/' + alias)
   }

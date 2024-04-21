@@ -152,6 +152,10 @@ import { CertificateRequestsPageComponent } from './certificates/pages/certifica
 import { CertificateRequestHostPageComponent } from './certificates/pages/certificate-request-host-page/certificate-request-host-page.component';
 import { CertificateRequestCardHostComponent } from './certificates/components/certificate-request-card-host/certificate-request-card-host.component';
 import { CertificateRequestCardsHostComponent } from './certificates/components/certificate-request-cards-host/certificate-request-cards-host.component';
+import {MatButtonToggleModule} from "@angular/material/button-toggle";
+import { CertificateCardHostComponent } from './certificates/components/certificate-card-host/certificate-card-host.component';
+import { IssueCertificateRequestPageComponent } from './certificates/pages/issue-certificate-request-page/issue-certificate-request-page.component';
+import { CertificateRequestFormComponent } from './certificates/components/certificate-request-form/certificate-request-form.component';
 
 
 @NgModule({
@@ -231,10 +235,14 @@ import { CertificateRequestCardsHostComponent } from './certificates/components/
     CertificateRequestHostPageComponent,
     CertificateRequestCardHostComponent,
     CertificateRequestCardsHostComponent,
+    CertificateCardHostComponent,
+    CertificateRequestCardsHostComponent,
     CertificateFormComponent,
     CertificateRequestCardComponent,
     CertificateRequestCardsComponent,
-    CertificateRequestsPageComponent
+    CertificateRequestsPageComponent,
+    IssueCertificateRequestPageComponent,
+    CertificateRequestFormComponent
   ],
   exports: [
     NavbarComponent,
@@ -256,7 +264,8 @@ import { CertificateRequestCardsHostComponent } from './certificates/components/
     HttpClientModule,
     MatTableModule,
     MatSortModule,
-    MatTabsModule
+    MatTabsModule,
+    MatButtonToggleModule
   ]
 })
 export class LayoutModule { }

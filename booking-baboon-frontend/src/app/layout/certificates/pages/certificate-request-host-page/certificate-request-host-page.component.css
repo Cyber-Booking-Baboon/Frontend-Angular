@@ -1,0 +1,40 @@
+.wrapper{
+  width: 90%;
+  margin: 0 auto;
+  padding-top: 2em;
+}
+
+.background-img{
+  background-image: url('../../../../../assets/jungle-background.png');
+  background-size: cover;
+  background-position: center;
+  color: #fff;
+  height: 100vh;
+}
+
+.overlay{
+  max-height: calc(100vh - 200px);
+  overflow: auto;
+  padding: 15px 25px 15px 25px;
+  background-color: rgba(243, 243, 243, 0.6);
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin: 20px 0 10px 0;
+}
+
+h1 {
+  text-align: center;
+  color: #4b4b4b;
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+}
+
+.add{
+  width: 10%;
+  margin-left: 45%;
+  margin-top: 0.5em;
+}
+
+
