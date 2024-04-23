@@ -1,1 +1,18 @@
-<p>certificate-request-host-page works!</p>
+<div class="background-img">
+  <div class="wrapper">
+    <app-navbar> </app-navbar>
+    <div class="overlay">
+      <h1>Certificate Requests</h1>
+
+
+      <mat-divider></mat-divider>
+      <mat-button-toggle class="add"  [routerLink]="['issue']"> <mat-icon>add</mat-icon></mat-button-toggle>
+      <app-certificate-request-cards-host [certificateRequests]="certificateRequests"></app-certificate-request-cards-host>
+      <mat-divider></mat-divider>
+      <h1>Certificates</h1>
+
+      <mat-divider></mat-divider>
+      <app-certificate-card-host [certificate]="certificate"></app-certificate-card-host>
+    </div>
+  </div>
+</div>

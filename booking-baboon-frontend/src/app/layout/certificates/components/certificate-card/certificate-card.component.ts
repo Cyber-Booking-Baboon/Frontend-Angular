@@ -1,5 +1,4 @@
-import {Component, Input} from '@angular/core';
-import {Accommodation} from "../../../accommodations/shared/models/accommodation.model";
+import {Component, Input, OnInit} from '@angular/core';
 import {Certificate} from "../../models/certificate";
 import {CertificateService} from "../../services/certificate.service";
 import {CertificateExtension} from "../../models/certificate.extension";
@@ -10,15 +9,20 @@ import {SharedService} from "../../../../shared/shared.service";
   templateUrl: './certificate-card.component.html',
   styleUrls: ['./certificate-card.component.css']
 })
-export class CertificateCardComponent {
+export class CertificateCardComponent implements OnInit{
   @Input()
   certificate!: Certificate;
   children!: Certificate[]
   isDropped = false;
+  isCA = true;
 
   constructor(private certificateService: CertificateService, private sharedService:SharedService) {
   }
 
+
+  ngOnInit(): void {
+    this.isCA = this.certificate.extensions.includes(CertificateExtension.BASIC_CONSTRAINT);
+  }
   loadChildren(): void {
     this.certificateService.getAllChildren(this.certificate.alias).subscribe({
       next: (data: Certificate[]) => {
