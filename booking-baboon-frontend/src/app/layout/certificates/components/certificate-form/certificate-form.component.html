@@ -1,0 +1,105 @@
+<div id="certificate-box">
+  <div id="title-section">
+    <h2>Certificate Form</h2>
+    <p>Enter details</p>
+  </div>
+  <form id="certificate-form" [formGroup]="certificateForm" (submit)="onSubmitClick()">
+    <h3 class="section-title">Issuer</h3>
+    <mat-form-field subscriptSizing="dynamic" id="issuer-section" class="input-field">
+      <mat-label>
+        Issuer
+      </mat-label>
+      <input formControlName="issuerAlias" readonly matInput type="text">
+    </mat-form-field>
+
+        <mat-form-field subscriptSizing="dynamic" id="date-section" class="input-field">
+      <mat-label>
+        Enter a date range
+      </mat-label>
+      <mat-date-range-input [rangePicker]="picker">
+        <input formControlName="startDate" matStartDate placeholder="Start date" readonly>
+        <input formControlName="endDate" matEndDate placeholder="End date" readonly>
+      </mat-date-range-input>
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-date-range-picker [dateClass]="dateClass" #picker></mat-date-range-picker>
+    </mat-form-field>
+
+    <h3 class="section-title">Subject</h3>
+
+    <mat-form-field subscriptSizing="dynamic" id="alias-section" class="input-field">
+      <mat-label>
+        Alias
+      </mat-label>
+      <input formControlName="alias" matInput type="text">
+    </mat-form-field>
+    <div formGroupName="subject" class="subject-section">
+      <mat-form-field subscriptSizing="dynamic" id="subject-common-name" class="input-field">
+        <mat-label>
+          Subject Common Name
+        </mat-label>
+        <input formControlName="commonName" matInput type="text">
+      </mat-form-field>
+
+      <mat-form-field subscriptSizing="dynamic" id="subject-surname" class="input-field">
+        <mat-label>
+          Subject Surname
+        </mat-label>
+        <input formControlName="surname" matInput type="text">
+      </mat-form-field>
+
+      <mat-form-field subscriptSizing="dynamic" id="subject-given-name" class="input-field">
+        <mat-label>
+          Subject Given Name
+        </mat-label>
+        <input formControlName="givenName" matInput type="text">
+      </mat-form-field>
+
+      <mat-form-field subscriptSizing="dynamic" id="subject-organization" class="input-field">
+        <mat-label>
+          Subject Organization
+        </mat-label>
+        <input formControlName="organization" matInput type="text">
+      </mat-form-field>
+
+      <mat-form-field subscriptSizing="dynamic" id="subject-organizational-unit" class="input-field">
+        <mat-label>
+          Subject Organizational Unit
+        </mat-label>
+        <input formControlName="organizationalUnit" matInput type="text">
+      </mat-form-field>
+
+      <mat-form-field subscriptSizing="dynamic" id="subject-country" class="input-field">
+        <mat-label>
+          Subject Country
+        </mat-label>
+        <input formControlName="country" matInput type="text">
+      </mat-form-field>
+
+      <mat-form-field subscriptSizing="dynamic" id="subject-email" class="input-field">
+        <mat-label>
+          Subject Email
+        </mat-label>
+        <input formControlName="email" matInput type="email">
+      </mat-form-field>
+
+      <mat-form-field subscriptSizing="dynamic" id="subject-user-id" class="input-field">
+        <mat-label>
+          Subject User ID
+        </mat-label>
+        <input formControlName="userId" matInput type="text">
+      </mat-form-field>
+    </div>
+
+    <div id="extension-section">
+      <h3>Extensions</h3>
+      <div id="extension-box" [formGroup]="extensionTypeForm">
+      <span class="extension-checkbox" *ngFor="let extension of getEnumValues(availableExtensions)">
+        <mat-checkbox color="primary" [formControlName]="extension">{{ extension }}</mat-checkbox>
+      </span>
+      </div>
+    </div>
+
+    <button mat-raised-button type="submit" color="primary" id="submit-form-button" [disabled]="!certificateForm.valid">Submit form</button>
+  </form>
+</div>
+<app-snack-bar></app-snack-bar>

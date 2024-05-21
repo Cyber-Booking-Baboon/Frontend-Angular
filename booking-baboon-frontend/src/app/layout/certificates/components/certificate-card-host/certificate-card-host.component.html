@@ -1,0 +1,23 @@
+<div id="certificateList">
+  <div *ngIf="certificate" id="container">
+    <div class="content">
+      <div class="top-section">
+        <span class="certificate-alias">{{certificate.alias}}</span>
+        <div class="certificate-dates">{{parseSimpleDate(certificate.startDate)}} - {{parseSimpleDate(certificate.endDate)}}</div>
+      </div>
+      <div class="extensions" >
+        <span *ngFor="let extension of certificate.extensions" class="extension">{{extension}}</span>
+      </div>
+      <div class="bottom-section">
+        <div class="subject-section">
+          <span>{{certificate.subject.commonName}}, {{certificate.subject.organization}}, {{certificate.subject.organizationalUnit}}</span>
+        </div>
+        <div class="buttons">
+          <span *ngIf="hide">{{privateKey}}</span>
+          <button mat-raised-button class="border validate-button" (click)="onGetPrivateKeyClicked()" > {{text}}</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

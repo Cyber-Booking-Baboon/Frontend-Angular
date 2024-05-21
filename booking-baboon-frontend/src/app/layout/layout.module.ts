@@ -140,10 +140,22 @@ import {HttpClientModule} from "@angular/common/http";
 import {MatTableModule} from "@angular/material/table";
 import {MatSortModule} from "@angular/material/sort";
 import {MatTabsModule} from "@angular/material/tabs";
-import { CertificatesPageComponent } from './certificates/certificates-page/certificates-page.component';
-import { CertificateCardComponent } from './certificates/certificate-card/certificate-card.component';
-import { CertificateCardsComponent } from './certificates/certificate-cards/certificate-cards.component';
+import { CertificatesPageComponent } from './certificates/pages/certificates-page/certificates-page.component';
+import { CertificateCardComponent } from './certificates/components/certificate-card/certificate-card.component';
+import { CertificateCardsComponent } from './certificates/components/certificate-cards/certificate-cards.component';
 import { NavbarSysAdminComponent } from './navbars/navbar-sys-admin/navbar-sys-admin.component';
+import { IssueCertificatePageComponent } from './certificates/pages/issue-certificate-page/issue-certificate-page.component';
+import { CertificateFormComponent } from './certificates/components/certificate-form/certificate-form.component';
+import { CertificateRequestCardComponent } from './certificates/components/requests/certificate-request-card/certificate-request-card.component';
+import { CertificateRequestCardsComponent } from './certificates/components/requests/certificate-request-cards/certificate-request-cards.component';
+import { CertificateRequestsPageComponent } from './certificates/pages/certificate-requests-page/certificate-requests-page.component';
+import { CertificateRequestHostPageComponent } from './certificates/pages/certificate-request-host-page/certificate-request-host-page.component';
+import { CertificateRequestCardHostComponent } from './certificates/components/certificate-request-card-host/certificate-request-card-host.component';
+import { CertificateRequestCardsHostComponent } from './certificates/components/certificate-request-cards-host/certificate-request-cards-host.component';
+import {MatButtonToggleModule} from "@angular/material/button-toggle";
+import { CertificateCardHostComponent } from './certificates/components/certificate-card-host/certificate-card-host.component';
+import { IssueCertificateRequestPageComponent } from './certificates/pages/issue-certificate-request-page/issue-certificate-request-page.component';
+import { CertificateRequestFormComponent } from './certificates/components/certificate-request-form/certificate-request-form.component';
 
 
 @NgModule({
@@ -217,7 +229,20 @@ import { NavbarSysAdminComponent } from './navbars/navbar-sys-admin/navbar-sys-a
     CertificatesPageComponent,
     CertificateCardComponent,
     CertificateCardsComponent,
-    NavbarSysAdminComponent
+    NavbarSysAdminComponent,
+    IssueCertificatePageComponent,
+    CertificateFormComponent,
+    CertificateRequestHostPageComponent,
+    CertificateRequestCardHostComponent,
+    CertificateRequestCardsHostComponent,
+    CertificateCardHostComponent,
+    CertificateRequestCardsHostComponent,
+    CertificateFormComponent,
+    CertificateRequestCardComponent,
+    CertificateRequestCardsComponent,
+    CertificateRequestsPageComponent,
+    IssueCertificateRequestPageComponent,
+    CertificateRequestFormComponent
   ],
   exports: [
     NavbarComponent,
@@ -239,7 +264,8 @@ import { NavbarSysAdminComponent } from './navbars/navbar-sys-admin/navbar-sys-a
     HttpClientModule,
     MatTableModule,
     MatSortModule,
-    MatTabsModule
+    MatTabsModule,
+    MatButtonToggleModule
   ]
 })
 export class LayoutModule { }

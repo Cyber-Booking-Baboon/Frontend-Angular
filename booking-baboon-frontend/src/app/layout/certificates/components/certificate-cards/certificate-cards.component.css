@@ -1,0 +1,10 @@
+
+#certificateList{
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  margin-top: 10px;
+  overflow: auto;
+  padding: 5px 0 15px 25px;
+}
+

@@ -1,0 +1,21 @@
+<div *ngIf="certificateRequest" id="container">
+  <div class="content">
+    <div class="top-section">
+      <span class="certificate-alias">{{certificateRequest.alias}}</span>
+      <div class="certificate-dates">{{parseSimpleDate(certificateRequest.startDate)}} - {{parseSimpleDate(certificateRequest.endDate)}}</div>
+    </div>
+    <div class="extensions" >
+      <span *ngFor="let extension of certificateRequest.extensions" class="extension">{{extension}}</span>
+    </div>
+    <div class="bottom-section">
+      <div class="subject-section">
+        <span>{{certificateRequest.subjectCN}}, {{certificateRequest.subjectO}}, {{certificateRequest.subjectOU}}</span>
+      </div>
+      <div class="status-section">
+        <span [ngClass]="{'approved':certificateRequest.status  === CertificateRequestStatus.APPROVED,
+               'pending': certificateRequest.status === CertificateRequestStatus.PENDING,
+               'denied': certificateRequest.status === CertificateRequestStatus.DENIED}">{{certificateRequest.status}}</span>
+      </div>
+    </div>
+  </div>
+</div>

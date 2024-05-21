@@ -45,7 +45,8 @@ export class ReservationService {
   }
 
   deny(id: number): Observable<Reservation> {
-    return this.httpClient.put<Reservation>(environment.apiHost + 'reservations/' + id + "/deny", {})  }
+    return this.httpClient.put<Reservation>(environment.apiHost + 'reservations/' + id + "/deny", {})
+  }
 
   cancel(id: number): Observable<Reservation> {
     return this.httpClient.put<Reservation>(environment.apiHost + 'reservations/' + id + "/cancel", {})  }
