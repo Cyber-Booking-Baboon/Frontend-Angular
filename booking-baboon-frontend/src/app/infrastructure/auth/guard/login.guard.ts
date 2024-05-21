@@ -1,6 +1,7 @@
-import {Injectable} from "@angular/core";
-import {CanActivate, Router} from "@angular/router";
+import {inject, Injectable} from "@angular/core";
+import {CanActivate, CanActivateFn, Router} from "@angular/router";
 import {AuthService} from "../auth.service";
+import {KeycloakService} from "../../keycloak/keycloak.service";
 
 @Injectable({
   providedIn: 'root'

@@ -8,6 +8,7 @@ import {Login} from "./model/login.model";
 import {User} from "../../layout/users/models/user.model";
 import {Host} from "../../layout/users/models/host.model";
 import {Guest} from "../../layout/users/models/guest.model";
+import {KeycloakService} from "../keycloak/keycloak.service";
 
 @Injectable({
   providedIn: 'root'
@@ -22,7 +23,7 @@ export class AuthService {
   user$ = new BehaviorSubject("");
   userState = this.user$.asObservable();
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient, private keyCloakService: KeycloakService) {
     this.user$.next(this.getRole());
   }
 
@@ -32,12 +33,14 @@ export class AuthService {
     });
   }
 
-  logout(): Observable<string> {
+  async logout() {
     localStorage.removeItem('user');
     this.setUser();
+    this.keyCloakService.logout();
     return this.http.get(environment.apiHost + 'users/logout', {
       responseType: 'text',
     });
+
   }
 
   getRole(): any {
@@ -49,8 +52,8 @@ export class AuthService {
     return null;
   }
 
-  getId(): number | undefined{
-    if(this.isLoggedIn()){
+  getId(): number | undefined {
+    if (this.isLoggedIn()) {
       const accessToken: any = localStorage.getItem('user');
       const helper = new JwtHelperService();
       return +helper.decodeToken(accessToken)["id"];
@@ -67,19 +70,19 @@ export class AuthService {
   }
 
   registerHost(user: Host): Observable<Host> {
-    return this.http.post<Host>(environment.apiHost+'hosts/',user)
+    return this.http.post<Host>(environment.apiHost + 'hosts/', user)
   }
 
   registerGuest(user: Guest): Observable<Guest> {
-    return this.http.post<Guest>(environment.apiHost+'guests/',user)
+    return this.http.post<Guest>(environment.apiHost + 'guests/', user)
   }
 
   getUser() {
     return this.user$;
   }
 
-  getExpiration() : number | undefined{
-    if(this.isLoggedIn()){
+  getExpiration(): number | undefined {
+    if (this.isLoggedIn()) {
       const accessToken: any = localStorage.getItem('user');
       const helper = new JwtHelperService();
       return +helper.decodeToken(accessToken)["exp"];
@@ -87,8 +90,8 @@ export class AuthService {
     return undefined;
   }
 
-  getEmail() : string | undefined{
-    if(this.isLoggedIn()){
+  getEmail(): string | undefined {
+    if (this.isLoggedIn()) {
       const accessToken: any = localStorage.getItem('user');
       const helper = new JwtHelperService();
       const decodedToken = helper.decodeToken(accessToken);
