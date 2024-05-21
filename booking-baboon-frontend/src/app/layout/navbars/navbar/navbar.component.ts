@@ -20,13 +20,7 @@ export class NavbarComponent implements OnInit{
     })
   }
 
-  logOut(): void {
-    this.authService.logout().subscribe({
-      next: (_) => {
-        localStorage.removeItem('user');
-        this.authService.setUser();
-        this.router.navigate(['login']);
-      }
-    })
+  logout(): void {
+    this.authService.logout()
   }
 }

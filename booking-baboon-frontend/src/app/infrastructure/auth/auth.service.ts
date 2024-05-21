@@ -9,6 +9,7 @@ import {User} from "../../layout/users/models/user.model";
 import {Host} from "../../layout/users/models/host.model";
 import {Guest} from "../../layout/users/models/guest.model";
 import {KeycloakService} from "../keycloak/keycloak.service";
+import {Router} from "@angular/router";
 
 @Injectable({
   providedIn: 'root'
@@ -22,6 +23,7 @@ export class AuthService {
 
   user$ = new BehaviorSubject("");
   userState = this.user$.asObservable();
+  private router: Router = new Router();
 
   constructor(private http: HttpClient, private keyCloakService: KeycloakService) {
     this.user$.next(this.getRole());
@@ -34,12 +36,18 @@ export class AuthService {
   }
 
   async logout() {
-    localStorage.removeItem('user');
-    this.setUser();
-    this.keyCloakService.logout();
-    return this.http.get(environment.apiHost + 'users/logout', {
-      responseType: 'text',
-    });
+    try {
+      localStorage.removeItem('user');
+      this.setUser();
+
+      await this.keyCloakService.logout();
+
+
+      await this.http.get(environment.apiHost + 'users/logout', { responseType: 'text' }).toPromise();
+      this.router.navigate(['login']);
+    } catch (error) {
+      console.error('Error during logout:', error);
+    }
 
   }
 
