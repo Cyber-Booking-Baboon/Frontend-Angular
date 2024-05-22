@@ -55,7 +55,11 @@ export class AuthService {
     if (this.isLoggedIn()) {
       const accessToken: any = localStorage.getItem('user');
       const helper = new JwtHelperService();
-      return helper.decodeToken(accessToken).role[0].authority;
+      console.log(helper.decodeToken(accessToken).realm_access.roles[2]);
+      return helper.decodeToken(accessToken).realm_access.roles[2].toString().toUpperCase();
+
+
+      //return helper.decodeToken(accessToken).role[0].authority;
     }
     return null;
   }
@@ -64,6 +68,8 @@ export class AuthService {
     if (this.isLoggedIn()) {
       const accessToken: any = localStorage.getItem('user');
       const helper = new JwtHelperService();
+      //TODO add user id to token and extract it here
+      return 12;
       return +helper.decodeToken(accessToken)["id"];
     }
     return undefined;
@@ -103,7 +109,7 @@ export class AuthService {
       const accessToken: any = localStorage.getItem('user');
       const helper = new JwtHelperService();
       const decodedToken = helper.decodeToken(accessToken);
-      return decodedToken.sub;
+      return decodedToken.preferred_username;
     }
     return undefined;
   }

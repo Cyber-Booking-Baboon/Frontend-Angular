@@ -45,6 +45,8 @@ export class KeycloakService {
           token: this.keycloak.token
         };
         console.log('User profile loaded:', this._profile);
+        console.log(this._profile?.token)
+        localStorage.setItem("user",<string>this._profile?.token?.toString())
       } else {
         console.warn('User not authenticated');
       }
