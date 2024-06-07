@@ -32,7 +32,8 @@ export class KeycloakService {
     try {
       console.log('Authenticating the user...');
       const authenticated = await this.keycloak.init({
-        onLoad: 'login-required'
+        // onLoad: 'login-required'
+        onLoad: 'check-sso'
       });
 
       console.log('Keycloak init completed. Authenticated:', authenticated);

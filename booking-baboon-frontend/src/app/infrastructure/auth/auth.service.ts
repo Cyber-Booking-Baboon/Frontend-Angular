@@ -68,8 +68,6 @@ export class AuthService {
     if (this.isLoggedIn()) {
       const accessToken: any = localStorage.getItem('user');
       const helper = new JwtHelperService();
-      //TODO add user id to token and extract it here
-      return 12;
       return +helper.decodeToken(accessToken)["id"];
     }
     return undefined;
