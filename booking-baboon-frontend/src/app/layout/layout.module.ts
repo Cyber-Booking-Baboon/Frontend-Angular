@@ -156,6 +156,7 @@ import {MatButtonToggleModule} from "@angular/material/button-toggle";
 import { CertificateCardHostComponent } from './certificates/components/certificate-card-host/certificate-card-host.component';
 import { IssueCertificateRequestPageComponent } from './certificates/pages/issue-certificate-request-page/issue-certificate-request-page.component';
 import { CertificateRequestFormComponent } from './certificates/components/certificate-request-form/certificate-request-form.component';
+import {RecaptchaModule} from "ng-recaptcha";
 
 
 @NgModule({
@@ -249,23 +250,24 @@ import { CertificateRequestFormComponent } from './certificates/components/certi
     LoginComponent,
     ActivationComponent
   ],
-  imports: [
-    CommonModule,
-    MaterialModule,
-    RouterLink,
-    RouterModule,
-    MatInputModule,
-    ReactiveFormsModule,
-    FormsModule,
-    MatDialogModule,
-    SharedModule,
-    MatAutocompleteModule,
-    MatTooltipModule,
-    HttpClientModule,
-    MatTableModule,
-    MatSortModule,
-    MatTabsModule,
-    MatButtonToggleModule
-  ]
+    imports: [
+        CommonModule,
+        MaterialModule,
+        RouterLink,
+        RouterModule,
+        MatInputModule,
+        ReactiveFormsModule,
+        FormsModule,
+        MatDialogModule,
+        SharedModule,
+        MatAutocompleteModule,
+        MatTooltipModule,
+        HttpClientModule,
+        MatTableModule,
+        MatSortModule,
+        MatTabsModule,
+        MatButtonToggleModule,
+        RecaptchaModule
+    ]
 })
 export class LayoutModule { }

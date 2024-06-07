@@ -44,8 +44,15 @@ export class RegisterComponent {
   hide: boolean = true;
   passwordMatch: boolean = false;
   isEditable: boolean = true;
+  captcha: string | null;
 
-  constructor(private authService: AuthService, private formBuilder: FormBuilder) {}
+  constructor(private authService: AuthService, private formBuilder: FormBuilder) {
+    this.captcha = '';
+  }
+
+  resolved(captchaResponse: string | null) {
+    this.captcha = captchaResponse;
+  }
 
   matchValidator(controlName: string, matchingControlName: string): ValidatorFn {
     return (abstractControl: AbstractControl) => {
