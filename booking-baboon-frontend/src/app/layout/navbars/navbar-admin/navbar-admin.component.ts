@@ -11,15 +11,8 @@ import {JwtHelperService} from "@auth0/angular-jwt";
 export class NavbarAdminComponent {
   constructor(private authService: AuthService, private router: Router) {
   }
-
   logout(): void {
-    this.authService.logout().subscribe({
-      next: (_) => {
-        localStorage.removeItem('user');
-        this.authService.setUser();
-        this.router.navigate(['login']);
-      }
-    })
+    this.authService.logout()
   }
 
   openAccountPage(): void {
