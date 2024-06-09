@@ -65,7 +65,7 @@
               <p class="error-message">Passwords must match.</p>
             </div>
             <div *ngIf="!registerPasswordForm.get('password')?.valid">
-              <p class="error-message">Password must be 8 characters long.</p>
+              <p class="error-message">Password must be 8 characters long and uncommon.</p>
             </div>
             <div [hidden]="captcha">
               <re-captcha (resolved)="resolved($event)" siteKey="6LekHu8pAAAAACdz6IEQKY7jD1zRTelpeTed_pIN"></re-captcha>
