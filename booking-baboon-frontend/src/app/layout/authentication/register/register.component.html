@@ -62,10 +62,16 @@
               </button>
             </mat-form-field>
             <div *ngIf="!passwordMatch">
-              <p id="error">Passwords must match.</p>
+              <p class="error-message">Passwords must match.</p>
             </div>
-            <div>
-              <button mat-raised-button matStepperNext *ngIf="passwordMatch" (click)="register()" color="primary" type="submit" id="register">Register</button>
+            <div *ngIf="!registerPasswordForm.get('password')?.valid">
+              <p class="error-message">Password must be 8 characters long and uncommon.</p>
+            </div>
+            <div [hidden]="captcha">
+              <re-captcha (resolved)="resolved($event)" siteKey="6LekHu8pAAAAACdz6IEQKY7jD1zRTelpeTed_pIN"></re-captcha>
+            </div>
+            <div [hidden]="!captcha">
+              <button mat-raised-button matStepperNext *ngIf="passwordMatch && registerPasswordForm.get('password')?.valid" (click)="register()" color="primary" type="submit" id="register">Register</button>
               <button mat-button matStepperPrevious>Back</button>
             </div>
           </form>

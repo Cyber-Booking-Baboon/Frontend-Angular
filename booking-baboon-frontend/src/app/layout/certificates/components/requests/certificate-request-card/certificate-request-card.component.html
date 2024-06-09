@@ -1,0 +1,21 @@
+<div *ngIf="certificateRequest" id="container">
+  <div class="top-section">
+    <span class="certificate-alias">{{certificateRequest.alias}} (issuer: {{certificateRequest.issuerAlias}})</span>
+    <div class="certificate-dates">{{parseSimpleDate(certificateRequest.startDate)}} - {{parseSimpleDate(certificateRequest.endDate)}}</div>
+  </div>
+  <div class="extensions" >
+    <span *ngFor="let extension of certificateRequest.extensions" class="extension">{{extension}}</span>
+  </div>
+  <div class="bottom-section">
+    <div class="subject-section">
+      <p>{{certificateRequest.subjectCN}}, {{certificateRequest.subjectO}}, {{certificateRequest.subjectOU}}, {{certificateRequest.subjectC}}</p>
+      <p>{{certificateRequest.subjectE}}</p>
+    </div>
+    <div class="buttons">
+      <button mat-raised-button color="primary" class="border issue-button" (click)="onApproveClicked()">Approve</button>
+      <button mat-raised-button color="warn" class="border revoke-button" (click)="onDenyClicked()">Deny</button>
+    </div>
+  </div>
+</div>
+<app-snack-bar></app-snack-bar>
+

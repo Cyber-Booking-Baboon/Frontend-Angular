@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import {APP_INITIALIZER, NgModule} from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -9,7 +9,10 @@ import {AccommodationService} from "./layout/accommodations/shared/services/acco
 import {HTTP_INTERCEPTORS} from "@angular/common/http";
 import {Interceptor} from "./infrastructure/auth/interceptor";
 import {AuthModule} from "./infrastructure/auth/auth.module";
-
+import {KeycloakService} from "./infrastructure/keycloak/keycloak.service";
+export function kcFactory(kcService: KeycloakService){
+  return () => kcService.init();
+}
 
 @NgModule({
   declarations: [
@@ -26,7 +29,12 @@ import {AuthModule} from "./infrastructure/auth/auth.module";
     provide: HTTP_INTERCEPTORS,
     useClass: Interceptor,
     multi: true,
-    },
+    },{
+    provide: APP_INITIALIZER,
+    deps: [KeycloakService],
+    useFactory: kcFactory,
+    multi: true
+  }
   ],
   bootstrap: [AppComponent]
 })

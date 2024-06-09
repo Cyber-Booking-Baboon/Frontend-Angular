@@ -118,8 +118,17 @@ import {
 import {
   FavoriteAccommodationsPageComponent
 } from "./accommodations/favorites/favorite-accommodations-page/favorite-accommodations-page.component";
-import {CommonModule} from "@angular/common";
+import {
+  AccommodationModificationDetailsPageComponent
+} from "./accommodations/modification/pages/accommodation-modification-details-page/accommodation-modification-details-page.component";
+import {NotificationPageComponent} from "./notifications/notification-page/notification-page.component";
+import {NotificationCardComponent} from "./notifications/notification-card/notification-card.component";
+import {NotificationCardsComponent} from "./notifications/notification-cards/notification-cards.component";
+import {AdminReviewReportsPageComponent} from "./reports/admin-review-reports-page/admin-review-reports-page.component";
+import {AdminReviewReportsComponent} from "./reports/admin-review-reports/admin-review-reports.component";
+import {UserReportsComponent} from "./reports/user-reports/user-reports.component";
 import {MaterialModule} from "../infrastructure/material/material.module";
+import {CommonModule} from "@angular/common";
 import {RouterLink, RouterModule} from "@angular/router";
 import {MatInputModule} from "@angular/material/input";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
@@ -131,15 +140,23 @@ import {HttpClientModule} from "@angular/common/http";
 import {MatTableModule} from "@angular/material/table";
 import {MatSortModule} from "@angular/material/sort";
 import {MatTabsModule} from "@angular/material/tabs";
-import { NotificationPageComponent } from './notifications/notification-page/notification-page.component';
-import { NotificationCardComponent } from './notifications/notification-card/notification-card.component';
-import { NotificationCardsComponent } from './notifications/notification-cards/notification-cards.component';
-import {
-  AccommodationModificationDetailsPageComponent
-} from "./accommodations/modification/pages/accommodation-modification-details-page/accommodation-modification-details-page.component";
-import { AdminReviewReportsPageComponent } from './reports/admin-review-reports-page/admin-review-reports-page.component';
-import { AdminReviewReportsComponent } from './reports/admin-review-reports/admin-review-reports.component';
-import { UserReportsComponent } from './reports/user-reports/user-reports.component';
+import { CertificatesPageComponent } from './certificates/pages/certificates-page/certificates-page.component';
+import { CertificateCardComponent } from './certificates/components/certificate-card/certificate-card.component';
+import { CertificateCardsComponent } from './certificates/components/certificate-cards/certificate-cards.component';
+import { NavbarSysAdminComponent } from './navbars/navbar-sys-admin/navbar-sys-admin.component';
+import { IssueCertificatePageComponent } from './certificates/pages/issue-certificate-page/issue-certificate-page.component';
+import { CertificateFormComponent } from './certificates/components/certificate-form/certificate-form.component';
+import { CertificateRequestCardComponent } from './certificates/components/requests/certificate-request-card/certificate-request-card.component';
+import { CertificateRequestCardsComponent } from './certificates/components/requests/certificate-request-cards/certificate-request-cards.component';
+import { CertificateRequestsPageComponent } from './certificates/pages/certificate-requests-page/certificate-requests-page.component';
+import { CertificateRequestHostPageComponent } from './certificates/pages/certificate-request-host-page/certificate-request-host-page.component';
+import { CertificateRequestCardHostComponent } from './certificates/components/certificate-request-card-host/certificate-request-card-host.component';
+import { CertificateRequestCardsHostComponent } from './certificates/components/certificate-request-cards-host/certificate-request-cards-host.component';
+import {MatButtonToggleModule} from "@angular/material/button-toggle";
+import { CertificateCardHostComponent } from './certificates/components/certificate-card-host/certificate-card-host.component';
+import { IssueCertificateRequestPageComponent } from './certificates/pages/issue-certificate-request-page/issue-certificate-request-page.component';
+import { CertificateRequestFormComponent } from './certificates/components/certificate-request-form/certificate-request-form.component';
+import {RecaptchaModule} from "ng-recaptcha";
 
 
 @NgModule({
@@ -209,29 +226,48 @@ import { UserReportsComponent } from './reports/user-reports/user-reports.compon
     NotificationCardsComponent,
     AdminReviewReportsPageComponent,
     AdminReviewReportsComponent,
-    UserReportsComponent
+    UserReportsComponent,
+    CertificatesPageComponent,
+    CertificateCardComponent,
+    CertificateCardsComponent,
+    NavbarSysAdminComponent,
+    IssueCertificatePageComponent,
+    CertificateFormComponent,
+    CertificateRequestHostPageComponent,
+    CertificateRequestCardHostComponent,
+    CertificateRequestCardsHostComponent,
+    CertificateCardHostComponent,
+    CertificateRequestCardsHostComponent,
+    CertificateFormComponent,
+    CertificateRequestCardComponent,
+    CertificateRequestCardsComponent,
+    CertificateRequestsPageComponent,
+    IssueCertificateRequestPageComponent,
+    CertificateRequestFormComponent
   ],
   exports: [
     NavbarComponent,
     LoginComponent,
     ActivationComponent
   ],
-  imports: [
-    CommonModule,
-    MaterialModule,
-    RouterLink,
-    RouterModule,
-    MatInputModule,
-    ReactiveFormsModule,
-    FormsModule,
-    MatDialogModule,
-    SharedModule,
-    MatAutocompleteModule,
-    MatTooltipModule,
-    HttpClientModule,
-    MatTableModule,
-    MatSortModule,
-    MatTabsModule
-  ]
+    imports: [
+        CommonModule,
+        MaterialModule,
+        RouterLink,
+        RouterModule,
+        MatInputModule,
+        ReactiveFormsModule,
+        FormsModule,
+        MatDialogModule,
+        SharedModule,
+        MatAutocompleteModule,
+        MatTooltipModule,
+        HttpClientModule,
+        MatTableModule,
+        MatSortModule,
+        MatTabsModule,
+        MatButtonToggleModule,
+        RecaptchaModule
+    ]
 })
 export class LayoutModule { }

@@ -1,4 +1,5 @@
 export const environment = {
-  apiHost: 'http://localhost:8080/api/v1/',
-  socketHost: 'http://localhost:8080/'
+  apiHost: 'https://localhost:8080/api/v1/',
+  pkiHost: 'https://localhost:9090/api/',
+  socketHost: 'https://localhost:8080/'
 }

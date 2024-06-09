@@ -1,0 +1,31 @@
+<div *ngIf="certificate" id="container">
+<!--  <button mat-icon-button (click)="loadChildren()">-->
+<!--    <mat-icon>keyboard_arrow_down</mat-icon>-->
+<!--  </button>-->
+  <div class="toggle-dropdown-icon" (click)="toggleDropdown()">
+    <mat-icon id="fav-border-icon" *ngIf="!isDropped">keyboard_arrow_down<</mat-icon>
+    <mat-icon id="fav-icon" *ngIf="isDropped">keyboard_arrow_up<</mat-icon>
+  </div>
+  <div class="content">
+    <div class="top-section">
+      <span class="certificate-alias">{{certificate.alias}}</span>
+      <div class="certificate-dates">{{parseSimpleDate(certificate.startDate)}} - {{parseSimpleDate(certificate.endDate)}}</div>
+    </div>
+    <div class="extensions" >
+      <span *ngFor="let extension of certificate.extensions" class="extension">{{extension}}</span>
+    </div>
+    <div class="bottom-section">
+      <div class="subject-section">
+        <span>{{certificate.subject.commonName}}, {{certificate.subject.organization}}, {{certificate.subject.organizationalUnit}}</span>
+      </div>
+      <div class="buttons">
+        <button mat-raised-button class="border validate-button" (click)="onValidateClicked()" >Validate</button>
+        <button mat-raised-button *ngIf="isCA" color="primary" class="border issue-button" [routerLink]="[certificate.alias, 'issue']" >Issue</button>
+        <button mat-raised-button color="warn" class="border revoke-button" (click)="onRemoveClicked()">Remove</button>
+      </div>
+    </div>
+  </div>
+</div>
+<app-certificate-cards *ngIf="children && children.length > 0" [certificates] = "children" class="nested-certificates"></app-certificate-cards>
+<app-snack-bar></app-snack-bar>
+

@@ -1,0 +1,67 @@
+#container{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 20px;
+  padding: 25px;
+  border-radius: 20px;
+  color: #262626;
+  background-color: white;
+  box-shadow: 5px 5px 10px #ccc, 0px 5px 10px #ccc, -5px 5px 10px #ccc; /* Increased blur radius to 10px */
+}
+
+.content{
+  width: 100%;
+}
+
+.certificate-alias{
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.extensions{
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  font-size: 12px;
+  gap: 10px;
+  color: #767676;
+}
+
+.top-section{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.buttons{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+.issue-button{
+  color: white;
+}
+
+.validate-button{
+  border: 2px solid #e5e5e5;
+}
+
+.bottom-section{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#certificateList{
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  margin-top: 10px;
+  overflow: auto;
+  padding: 5px 0 15px 25px;
+}
+
